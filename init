@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+name="$1"
+
+if [ -z "$name" ]; then
+  # random 6-digit hex number
+  name="$(openssl rand -hex 3)"
+fi
+
+date="$(date +%Y-%m-%d)"
+branch_name="$date-$name"
+
+git checkout -b "$branch_name"
+
+rm init
+rm -r .interviewer
+
+npm i
+npm run log-gen
+
+git add -A
+git commit -m "init for $name"

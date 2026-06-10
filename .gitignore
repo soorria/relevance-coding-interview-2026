@@ -1,0 +1,6 @@
+node_modules/
+.idea
+src/logs/
+*.db-*
+*.db
+.DS_Store
